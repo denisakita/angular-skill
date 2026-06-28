@@ -28,45 +28,45 @@ needs for the task — keeping token use low.
 
 ### Core framework
 
-| Skill | Use it for |
-| --- | --- |
-| [angular-components](angular-components/SKILL.md) | Components & selectors, signal inputs/outputs/`model`, content projection, host bindings, lifecycle, signal queries, styling, programmatic rendering |
-| [angular-templates](angular-templates/SKILL.md) | Bindings, event listeners, two-way binding, `@if`/`@for`/`@switch`, `@let`, `@defer`, pipes, expression syntax |
-| [angular-directives](angular-directives/SKILL.md) | Attribute & structural directives, directive composition (`hostDirectives`), `NgOptimizedImage` |
-| [angular-signals](angular-signals/SKILL.md) | `signal`/`computed`/`effect`, `linkedSignal`, `resource`/`rxResource`/`httpResource`, RxJS interop |
-| [angular-dependency-injection](angular-dependency-injection/SKILL.md) | Services, `inject()`, providers, `InjectionToken`, injection context, hierarchical injectors |
-| [angular-routing](angular-routing/SKILL.md) | Defining routes, lazy loading, outlets, navigation, route state, functional guards & resolvers, transitions |
-| [angular-forms](angular-forms/SKILL.md) | Reactive, template-driven, typed, dynamic forms, validation, and the new **Signal Forms** API |
-| [angular-http](angular-http/SKILL.md) | `provideHttpClient()`, requests, functional interceptors, `httpResource()`, HTTP testing |
+| Skill                                                                 | Use it for                                                                                                                                           |
+|-----------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [angular-components](angular-components/SKILL.md)                     | Components & selectors, signal inputs/outputs/`model`, content projection, host bindings, lifecycle, signal queries, styling, programmatic rendering |
+| [angular-templates](angular-templates/SKILL.md)                       | Bindings, event listeners, two-way binding, `@if`/`@for`/`@switch`, `@let`, `@defer`, pipes, expression syntax                                       |
+| [angular-directives](angular-directives/SKILL.md)                     | Attribute & structural directives, directive composition (`hostDirectives`), `NgOptimizedImage`                                                      |
+| [angular-signals](angular-signals/SKILL.md)                           | `signal`/`computed`/`effect`, `linkedSignal`, `resource`/`rxResource`/`httpResource`, RxJS interop                                                   |
+| [angular-dependency-injection](angular-dependency-injection/SKILL.md) | Services, `inject()`, providers, `InjectionToken`, injection context, hierarchical injectors                                                         |
+| [angular-routing](angular-routing/SKILL.md)                           | Defining routes, lazy loading, outlets, navigation, route state, functional guards & resolvers, transitions                                          |
+| [angular-forms](angular-forms/SKILL.md)                               | Reactive, template-driven, typed, dynamic forms, validation, and the new **Signal Forms** API                                                        |
+| [angular-http](angular-http/SKILL.md)                                 | `provideHttpClient()`, requests, functional interceptors, `httpResource()`, HTTP testing                                                             |
 
 ### Platform & tooling
 
-| Skill | Use it for |
-| --- | --- |
-| [angular-ssr](angular-ssr/SKILL.md) | Server-side & hybrid rendering, hydration, incremental hydration, render modes (SSR/SSG/CSR) |
-| [angular-testing](angular-testing/SKILL.md) | TestBed + Vitest (and Jasmine/Karma), components/services/directives/pipes, harnesses, coverage |
-| [angular-animations](angular-animations/SKILL.md) | Native CSS animations, route transitions (View Transitions API), migrating off `@angular/animations` |
-| [angular-i18n](angular-i18n/SKILL.md) | Marking/extracting text, translation files, locale-aware formatting, per-locale builds & deploy |
-| [angular-accessibility](angular-accessibility/SKILL.md) | ARIA bindings, focus & keyboard navigation, the headless `@angular/aria` primitives |
-| [angular-zoneless](angular-zoneless/SKILL.md) | Enabling/migrating to zoneless change detection (`provideZonelessChangeDetection()`) |
-| [angular-performance](angular-performance/SKILL.md) | Change detection, deferrable views, image/bundle optimization, lazy routing, SSR/hydration |
-| [angular-security](angular-security/SKILL.md) | XSS/sanitization, CSP & Trusted Types, HttpClient XSRF protection |
-| [angular-cli](angular-cli/SKILL.md) | `ng` generate/build/serve/test/add/update, schematics, environments, MCP server |
-| [angular-new-app](angular-new-app/SKILL.md) | Scaffolding a brand-new app: `ng new`, project structure, app config, first component |
+| Skill                                                   | Use it for                                                                                           |
+|---------------------------------------------------------|------------------------------------------------------------------------------------------------------|
+| [angular-ssr](angular-ssr/SKILL.md)                     | Server-side & hybrid rendering, hydration, incremental hydration, render modes (SSR/SSG/CSR)         |
+| [angular-testing](angular-testing/SKILL.md)             | TestBed + Vitest (and Jasmine/Karma), components/services/directives/pipes, harnesses, coverage      |
+| [angular-animations](angular-animations/SKILL.md)       | Native CSS animations, route transitions (View Transitions API), migrating off `@angular/animations` |
+| [angular-i18n](angular-i18n/SKILL.md)                   | Marking/extracting text, translation files, locale-aware formatting, per-locale builds & deploy      |
+| [angular-accessibility](angular-accessibility/SKILL.md) | ARIA bindings, focus & keyboard navigation, the headless `@angular/aria` primitives                  |
+| [angular-zoneless](angular-zoneless/SKILL.md)           | Enabling/migrating to zoneless change detection (`provideZonelessChangeDetection()`)                 |
+| [angular-performance](angular-performance/SKILL.md)     | Change detection, deferrable views, image/bundle optimization, lazy routing, SSR/hydration           |
+| [angular-security](angular-security/SKILL.md)           | XSS/sanitization, CSP & Trusted Types, HttpClient XSRF protection                                    |
+| [angular-cli](angular-cli/SKILL.md)                     | `ng` generate/build/serve/test/add/update, schematics, environments, MCP server                      |
+| [angular-new-app](angular-new-app/SKILL.md)             | Scaffolding a brand-new app: `ng new`, project structure, app config, first component                |
 
 ### Guidance (best practices, patterns, rules, principles)
 
-| Skill | Use it for |
-| --- | --- |
-| [angular-best-practices](angular-best-practices/SKILL.md) | Official best practices: performance, change detection, error handling, security, staying current |
+| Skill                                                       | Use it for                                                                                              |
+|-------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| [angular-best-practices](angular-best-practices/SKILL.md)   | Official best practices: performance, change detection, error handling, security, staying current       |
 | [angular-design-patterns](angular-design-patterns/SKILL.md) | Idiomatic signal-based, standalone patterns: components, state, services/DI, data loading, architecture |
-| [angular-code-rules](angular-code-rules/SKILL.md) | Official Angular Style Guide: naming, file/folder structure, coding rules |
-| [angular-principles](angular-principles/SKILL.md) | Guiding principles: signals-first, standalone-by-default, type-safety, DI, architecture |
+| [angular-code-rules](angular-code-rules/SKILL.md)           | Official Angular Style Guide: naming, file/folder structure, coding rules                               |
+| [angular-principles](angular-principles/SKILL.md)           | Guiding principles: signals-first, standalone-by-default, type-safety, DI, architecture                 |
 
 ### Architecture at scale (monolith & micro-frontends)
 
-| Skill | Use it for |
-| --- | --- |
+| Skill                                                                   | Use it for                                                                                                                                            |
+|-------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [angular-architecture-at-scale](angular-architecture-at-scale/SKILL.md) | Large-app architecture: modular monolith & Nx monorepo vs micro-frontends (Native/Module Federation), enterprise practices, and team rules of working |
 
 ## Sourcing & accuracy
@@ -95,7 +95,8 @@ verified against official docs, June 2026):
 - [`tsconfig.strict.json`](starter-kit/tsconfig.strict.json) — strict TS + Angular strict templates
 - [`CODEOWNERS`](starter-kit/CODEOWNERS) — review governance
 - [`federation.config.js`](starter-kit/federation.config.js) — Native Federation (micro-frontends only)
-- [`templates/`](starter-kit/templates/) — sample `app.config.ts`, `app.routes.ts`, root `app.ts`, and a first feature component (`user-profile` + signal `data-access` store)
+- [`templates/`](starter-kit/templates/) — sample `app.config.ts`, `app.routes.ts`, root `app.ts`, and a first feature
+  component (`user-profile` + signal `data-access` store)
 
 ## Usage
 
@@ -106,4 +107,4 @@ verified against official docs, June 2026):
 
 ## License
 
-MIT (per each skill's frontmatter).
+[MIT](LICENSE) © 2026 [denisakita](https://github.com/denisakita) (also declared per each skill's frontmatter).
