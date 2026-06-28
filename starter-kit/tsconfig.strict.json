@@ -1,0 +1,36 @@
+// Recommended strict TypeScript + Angular configuration for v21/v22.
+//
+// `ng new --strict` (the default) already enables most of this. This file documents the full
+// recommended set and adds the extra flags marked [ADD] for maximum strictness. Merge these
+// into your generated root `tsconfig.json` — do NOT blindly replace it (the CLI also sets
+// paths/outDir/lib that are project-specific).
+//
+// Flag reference: https://angular.dev/reference/configs/angular-compiler-options
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "strict": true, // enables noImplicitAny, strictNullChecks, strictFunctionTypes, etc.
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true, // [ADD] flag dead code
+    "noUnusedParameters": true, // [ADD]
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "bundler",
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "preserve"
+  },
+  "angularCompilerOptions": {
+    "strictTemplates": true, // type-check templates (default since v12 with --strict)
+    "strictInjectionParameters": true, // error if an injected dependency type can't be resolved
+    "strictInputAccessModifiers": true, // [ADD] enforce input access-modifier correctness
+    "strictStandalone": true, // [ADD] error if any component/directive/pipe is not standalone
+    "typeCheckHostBindings": true, // type-check `host` bindings (default true in v21+)
+    "enableI18nLegacyMessageIdFormat": false
+  }
+}

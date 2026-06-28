@@ -1,0 +1,30 @@
+# CODEOWNERS — automatic PR reviewers (GitHub / GitLab / Bitbucket support this format).
+# Place at repo root, in .github/, or in docs/. Later matches take precedence.
+# Every path needs at least one owner; require review via branch protection rules.
+# Docs: https://docs.github.com/articles/about-code-owners
+
+# ----- Default owner for everything -----
+*                               @your-org/frontend-leads
+
+# ----- Build / tooling / config -----
+/angular.json                   @your-org/frontend-platform
+/nx.json                        @your-org/frontend-platform
+/eslint.config.js               @your-org/frontend-platform
+/tsconfig*.json                 @your-org/frontend-platform
+/.github/                       @your-org/devops
+/*.config.js                    @your-org/frontend-platform
+
+# ----- Shared / cross-cutting code (stricter review) -----
+/src/app/core/                  @your-org/frontend-leads
+/src/app/shared/                @your-org/design-system
+/libs/ui/                       @your-org/design-system
+/libs/util/                     @your-org/frontend-leads
+
+# ----- Feature areas owned by their teams (monorepo example) -----
+/libs/checkout/                 @your-org/team-checkout
+/libs/catalog/                  @your-org/team-catalog
+/apps/shell/                    @your-org/frontend-platform
+
+# ----- Single-app feature folders example -----
+/src/app/features/checkout/     @your-org/team-checkout
+/src/app/features/catalog/      @your-org/team-catalog

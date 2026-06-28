@@ -1,0 +1,13 @@
+<h1>{{ heading() }}</h1>
+
+@if (user.isLoading()) {
+  <p>Loading…</p>
+} @else if (user.error()) {
+  <p role="alert">Sorry, we couldn't load this user.</p>
+  <button type="button" (click)="user.reload()">Retry</button>
+} @else if (user.value(); as u) {
+  <article>
+    <p><a [href]="'mailto:' + u.email">{{ u.email }}</a></p>
+    <button type="button" (click)="onContact()">Contact</button>
+  </article>
+}
