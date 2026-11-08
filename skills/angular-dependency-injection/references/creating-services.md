@@ -8,7 +8,7 @@ Source: https://angular.dev/guide/di/creating-injectable-service (→ creating-a
 ng generate service CUSTOM_NAME
 ```
 
-Or write one manually by applying the `@Service()` decorator to a class:
+Or write one manually by applying the `@Service()` decorator (v22+; on v21 use `@Injectable({providedIn: 'root'})`) to a class:
 
 ```typescript
 import {Service} from '@angular/core';
@@ -52,7 +52,7 @@ export class Analytics {
 
 ## Opting out of auto-provisioning
 
-Set `autoProvided: false` to control provider scope manually (e.g. provide it only on a component or route):
+Set `autoProvided: false` (v22+) to control provider scope manually (e.g. provide it only on a component or route):
 
 ```typescript
 @Service({autoProvided: false})

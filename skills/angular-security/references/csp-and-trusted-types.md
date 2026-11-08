@@ -31,7 +31,8 @@ Set the `ngCspNonce` attribute on the application root element. Useful when the 
 Provide the nonce through the `CSP_NONCE` token at bootstrap. Useful when the nonce is available in client-side code.
 
 ```ts
-import { bootstrapApplication, CSP_NONCE } from '@angular/core';
+import { CSP_NONCE } from '@angular/core';
+import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
 
 bootstrapApplication(AppComponent, {

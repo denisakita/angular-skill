@@ -23,7 +23,7 @@ The Angular CLI is the command-line tool (`ng`) for scaffolding, developing, tes
 
 ## Core rules
 
-- Require an active LTS or maintenance LTS version of Node.js; it ships with npm.
+- Require a supported Node.js version (`^22.22.3`, `^24.15.0` or `>=26.0.0` for Angular 22; `^20.19.0`, `^22.12.0` or `>=24.0.0` for Angular 21). npm ships with it.
 - Install the CLI globally with `npm install -g @angular/cli` (or the pnpm/yarn/bun equivalent) to get the `ng` binary.
 - Create new workspaces with `ng new <name>`; never hand-roll the workspace layout.
 - Prefer the modern `@angular/build:application` builder (the default for new apps) over the legacy webpack-based `@angular-devkit/build-angular:browser`.

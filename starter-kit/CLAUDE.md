@@ -13,7 +13,8 @@ When a task matches one of the installed Angular skills (from the plugin or `.cl
   derived state. Use `effect` for side effects only — never to compute values other code reads.
 - **Zoneless.** `provideZonelessChangeDetection()` is on; do not rely on Zone.js. No
   `NgZone.onStable`/`isStable` — use `afterNextRender`/`afterEveryRender` for browser-only work.
-- **`ChangeDetectionStrategy.OnPush`** on every component.
+- **`ChangeDetectionStrategy.OnPush`** on every component. It is the default in v22; keep it
+  explicit so the code also runs on v21.
 - **Built-in control flow** `@if` / `@for` (with `track`) / `@switch`. Never `*ngIf` / `*ngFor` /
   `*ngSwitch` / `ngClass` / `ngStyle` (use class/style bindings).
 - **`inject()`** for dependencies — not constructor parameter injection.
@@ -21,11 +22,11 @@ When a task matches one of the installed Angular skills (from the plugin or `.cl
   `viewChild()` / `contentChild()`. Never `@Input()` / `@Output()` / `@ViewChild()`.
 - **Services**: `@Injectable({ providedIn: 'root' })` (or `@Service()` in v22). Stateless where
   possible; expose signals, not subjects, for component-facing state.
-- **HTTP**: `provideHttpClient(withFetch(), withInterceptors([...]))`. Functional interceptors
-  only. Use `httpResource()` for reactive read/GET data in components; `HttpClient` for mutations.
+- **HTTP**: `provideHttpClient(withInterceptors([...]))` (on v21, also add `withFetch()`). Functional interceptors
+  only. Use `httpResource()` (experimental on v21) for reactive read/GET data in components; `HttpClient` for mutations.
 - **Routing**: `provideRouter` with `withComponentInputBinding()`. Lazy-load with
   `loadComponent` / `loadChildren`. Functional guards/resolvers (`CanActivateFn`, `ResolveFn`).
-- **Forms**: prefer typed Reactive Forms or Signal Forms (`@angular/forms/signals`). Always typed.
+- **Forms**: prefer typed Reactive Forms or Signal Forms (`@angular/forms/signals`, experimental on v21). Always typed.
 - **Filenames have no type suffix** (current Style Guide): `user-profile.ts`, `auth.ts`,
   `cart-store.ts` — not `user-profile.component.ts` / `auth.service.ts`. Class names keep the
   suffix only where idiomatic (e.g. `UserProfile`, `AuthInterceptor`).

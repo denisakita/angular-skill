@@ -12,24 +12,23 @@ client defers wiring it up until a trigger fires.
 
 ## Enabling
 
-Incremental hydration is enabled with the `withIncrementalHydration()` feature of
-`provideClientHydration()` (browser providers). It depends on and **automatically
-enables event replay**, so a separate `withEventReplay()` is unnecessary.
+In v22, incremental hydration is on by default with `provideClientHydration()` (browser
+providers), and `withIncrementalHydration()` is deprecated. In v21, enable it with the
+`withIncrementalHydration()` feature. It depends on and **automatically enables event
+replay**, so a separate `withEventReplay()` is unnecessary.
 
 ```typescript
-import {
-  bootstrapApplication,
-  provideClientHydration,
-  withIncrementalHydration,
-} from '@angular/platform-browser';
+import {bootstrapApplication, provideClientHydration} from '@angular/platform-browser';
 import {App} from './app/app';
 
+// On by default in v22. In v21, use provideClientHydration(withIncrementalHydration()).
 bootstrapApplication(App, {
-  providers: [provideClientHydration(withIncrementalHydration())],
+  providers: [provideClientHydration()],
 });
 ```
 
-To opt out, use `withNoIncrementalHydration()`.
+To opt out in v22, use `withNoIncrementalHydration()`. This also turns off event replay, so
+add `withEventReplay()` if you want to keep it.
 
 ## `hydrate` triggers on `@defer`
 
@@ -105,8 +104,8 @@ is no server HTML) and a `hydrate` trigger, separated by `;`:
 
 ## Common mistakes
 
-- Expecting incremental hydration without `withIncrementalHydration()` in the
-  client providers.
+- On v21, expecting incremental hydration without `withIncrementalHydration()` in the
+  client providers. (In v22 it is on by default, so the feature is not needed.)
 - Adding `withEventReplay()` alongside `withIncrementalHydration()` — redundant,
   since event replay is enabled automatically.
 - Using `hydrate` triggers without SSR/prerendering — there is no server HTML to

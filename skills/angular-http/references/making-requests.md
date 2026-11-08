@@ -143,7 +143,8 @@ http
 ```
 
 > The fetch backend does **not** report upload progress events. For upload progress,
-> configure `provideHttpClient(withXhr())`.
+> configure `provideHttpClient(withXhr())` in v22. In v21, leave out `withFetch()`, because
+> XHR is the default there.
 
 ## Error handling
 
@@ -237,6 +238,7 @@ http
 - **Passing `responseType` as a non-literal** — breaks the inferred return type.
 - **Expecting runtime type checks** — generics are assertions only; validate manually or
   use `parse` with `httpResource`.
-- **Expecting upload progress with the fetch backend** — use `withXhr()` instead.
+- **Expecting upload progress with the fetch backend** — use `withXhr()` in v22, or leave
+  out `withFetch()` in v21.
 - **Manual `.subscribe()` in components without cleanup** — prefer the `async` pipe or
   `takeUntilDestroyed()` to avoid leaks.

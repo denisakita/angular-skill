@@ -16,7 +16,7 @@ Why it matters:
 
 ## Services
 
-An Angular service is a TypeScript class whose instances can be injected as dependencies. In modern Angular you mark such a class with the `@Service()` decorator, which makes it available throughout the entire application as a singleton.
+An Angular service is a TypeScript class whose instances can be injected as dependencies. In Angular v22+ you mark such a class with the `@Service()` decorator (on v21, use `@Injectable({providedIn: 'root'})`), which makes it available throughout the entire application as a singleton.
 
 ```typescript
 import {Service} from '@angular/core';

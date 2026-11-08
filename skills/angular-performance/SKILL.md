@@ -28,4 +28,4 @@ Guidance for making Angular v21/v22 applications fast, grounded strictly in the 
 - Use `NgOptimizedImage` (`ngSrc`) for all content images; set `width`/`height` to prevent layout shift and mark the LCP image with `priority`.
 - Lazy load feature routes with `loadComponent`/`loadChildren` to keep the initial bundle small, and enforce limits with `budgets` in `angular.json`.
 - Run noisy async work (third-party libs, `setInterval`, `requestAnimationFrame`) outside Angular with `NgZone.runOutsideAngular`, re-entering via `ngZone.run()` only when state changes.
-- For SSR apps, enable hydration (`provideClientHydration`) to reuse server-rendered DOM and avoid a re-render flicker; add `withEventReplay()` to capture pre-hydration interactions.
+- For SSR apps, enable hydration (`provideClientHydration`) to reuse server-rendered DOM and avoid a re-render flicker; on v21, add `withEventReplay()` to capture pre-hydration interactions (on by default in v22).

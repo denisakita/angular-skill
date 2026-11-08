@@ -82,8 +82,8 @@ export class BypassSecurityComponent {
 If you need to sanitize a value yourself rather than trust it, call `DomSanitizer.sanitize()` with the appropriate `SecurityContext`:
 
 ```ts
-import { Component, inject } from '@angular/core';
-import { DomSanitizer, SecurityContext } from '@angular/platform-browser';
+import { Component, inject, SecurityContext } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({ selector: 'app-clean', template: '' })
 export class CleanComponent {

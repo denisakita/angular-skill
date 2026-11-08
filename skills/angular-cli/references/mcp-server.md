@@ -76,9 +76,9 @@ Pass these in the config's `args` array:
 | Tool | Purpose |
 |------|---------|
 | `ai_tutor` | Interactive AI-powered Angular tutor. |
-| `devserver.start` | Starts the dev server asynchronously. |
-| `devserver.stop` | Stops the dev server. |
-| `devserver.wait_for_build` | Returns recent build logs. |
+| `devserver_start` | Starts the dev server asynchronously. |
+| `devserver_stop` | Stops the dev server. |
+| `devserver_wait_for_build` | Returns recent build logs. |
 | `get_best_practices` | Retrieves the Angular Best Practices Guide. |
 | `list_projects` | Lists applications/libraries in the workspace. |
 | `onpush_zoneless_migration` | Migration analysis and planning (OnPush / zoneless). |

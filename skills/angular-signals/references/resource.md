@@ -3,6 +3,9 @@
 Source: https://angular.dev/guide/signals/resource and
 https://angular.dev/ecosystem/rxjs-interop
 
+> Status: `resource()`, `rxResource()` and `httpResource()` are stable in v22. In v21 they are
+> experimental, so their APIs can change.
+
 All signal APIs — `signal`, `computed`, `input`, etc. — are **synchronous**.
 Applications, however, often deal with data available asynchronously. A
 **Resource** incorporates async data into the signal reactivity system while
@@ -158,7 +161,7 @@ propagate, and resolved/local states return the value.
 ## Snapshots
 
 Access the current state via `snapshot` (status plus value or error), and compose
-resources with `resourceFromSnapshots`:
+resources with `resourceFromSnapshots` (experimental, so its API can change):
 
 ```typescript
 import {linkedSignal, resourceFromSnapshots, Resource, ResourceSnapshot} from '@angular/core';

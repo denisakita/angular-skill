@@ -5,16 +5,16 @@ can be injected. Source: https://angular.dev/guide/http/setup
 
 ## Standalone applications (recommended)
 
-Add `provideHttpClient()` to the application config providers. Enable the fetch backend
-explicitly with `withFetch()`:
+Add `provideHttpClient()` to the application config providers. In v22 it uses the `fetch`
+backend by default and `withFetch()` is deprecated. In v21, add `withFetch()` to opt in:
 
 ```typescript
 // app.config.ts
 import {ApplicationConfig} from '@angular/core';
-import {provideHttpClient, withFetch} from '@angular/common/http';
+import {provideHttpClient} from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideHttpClient(withFetch())],
+  providers: [provideHttpClient()],
 };
 ```
 
@@ -22,12 +22,11 @@ When bootstrapping directly:
 
 ```typescript
 import {bootstrapApplication} from '@angular/platform-browser';
-import {provideHttpClient, withFetch, withInterceptors} from '@angular/common/http';
+import {provideHttpClient, withInterceptors} from '@angular/common/http';
 
 bootstrapApplication(App, {
   providers: [
     provideHttpClient(
-      withFetch(),
       withInterceptors([loggingInterceptor, authInterceptor]),
     ),
   ],
@@ -37,10 +36,10 @@ bootstrapApplication(App, {
 ## NgModule-based applications
 
 ```typescript
-import {provideHttpClient, withFetch} from '@angular/common/http';
+import {provideHttpClient} from '@angular/common/http';
 
 @NgModule({
-  providers: [provideHttpClient(withFetch())],
+  providers: [provideHttpClient()],
   // ... other application configuration
 })
 export class AppModule {}
@@ -65,15 +64,16 @@ export class ConfigService {
 
 Pass these feature functions to `provideHttpClient(...)`:
 
-- **`withFetch()`** — Use the modern `fetch` API as the backend. This is the
-  recommended backend; it has broad environment support (including server-side
-  rendering) but does not report upload progress events.
+- **`withFetch()`** — Deprecated in v22, where `fetch` is already the default backend. In
+  v21, add it to use `fetch`. The `fetch` backend has broad environment support (including
+  server-side rendering) but does not report upload progress events.
 - **`withInterceptors([fn1, fn2, ...])`** — Register functional interceptors. They run
   in the order listed. See `interceptors.md`.
 - **`withInterceptorsFromDi()`** — Enable legacy class-based interceptors registered via
   the `HTTP_INTERCEPTORS` token. Ordering is hard to predict; avoid for new code.
-- **`withXhr()`** — Use `XMLHttpRequest` instead of `fetch`. Only needed for upload
-  progress events. **Server-side XHR support is deprecated and removed in Angular 23.**
+- **`withXhr()`** — v22+. Use `XMLHttpRequest` instead of `fetch`. Only needed for upload
+  progress events. In v21, XHR is already the default, so leave out `withFetch()` instead.
+  **Server-side XHR support is deprecated and intended to be removed in Angular 23.**
 - **`withRequestsMadeViaParent()`** — Route requests through the parent injector's
   `HttpClient` after local interceptors process them (hierarchical interceptor setups).
 - **`withJsonpSupport()`** — Enable the `.jsonp()` method for JSONP cross-domain
@@ -84,8 +84,8 @@ Pass these feature functions to `provideHttpClient(...)`:
 
 ## Best practices
 
-- Always call `provideHttpClient(withFetch())` — opting into fetch explicitly future-proofs
-  your app and is required for proper SSR behavior.
+- In v22, call plain `provideHttpClient()`, which already uses `fetch`. In v21, add
+  `withFetch()`, which is recommended for SSR.
 - Register interceptors at setup time with `withInterceptors([...])`, keeping all HTTP
   configuration in one place (`app.config.ts`).
 - Configure HTTP providers once at the application root, not per feature/route, unless you

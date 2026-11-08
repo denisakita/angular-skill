@@ -40,7 +40,7 @@ modified via `set()` or `update()`. (It does not protect against deep mutation o
 the underlying value.)
 
 ```typescript
-@Service()
+@Service() // v22+; on v21 use @Injectable({providedIn: 'root'})
 export class CounterState {
   private readonly _count = signal(0);
   readonly count = this._count.asReadonly();

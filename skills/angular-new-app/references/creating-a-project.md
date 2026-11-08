@@ -4,7 +4,7 @@ This covers everything from installing prerequisites to running the dev server f
 
 ## Prerequisites
 
-- **Node.js** — an active LTS or maintenance LTS version. The installation guide specifies **v20.19.0 or newer**. Installing Node.js also installs `npm`.
+- **Node.js** — `^22.22.3`, `^24.15.0` or `>=26.0.0` for Angular 22, and `^20.19.0`, `^22.12.0` or `>=24.0.0` for Angular 21. Installing Node.js also installs `npm`.
 - **A text editor** — Visual Studio Code is recommended.
 - **A terminal** — required for running Angular CLI commands.
 - (Recommended) the **Angular Language Service** editor extension.
@@ -95,7 +95,7 @@ Angular's online **Playground** is the fastest way to experiment with an app —
 
 ## Best practices
 
-- Use an active LTS Node.js version to match the CLI's supported range.
+- Use a Node.js version inside the CLI's supported range, listed above.
 - Accept the CLI prompt defaults unless you have a specific reason to change them — they reflect current recommended setup.
 - Prefer passing flags for repeatable, scripted project creation (CI, templates).
 - Choose your stylesheet format up front with `--style` to avoid migrating files later.

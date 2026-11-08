@@ -17,7 +17,7 @@ import { UserStore } from './user.store';
 
 @Component({
   selector: 'app-user-card',
-  changeDetection: ChangeDetectionStrategy.OnPush, // default since v22, but be explicit
+  changeDetection: ChangeDetectionStrategy.OnPush, // default since v22; keep it explicit if the code must also run on v21
   template: `
     @if (user(); as u) {
       <h2>{{ u.name }}</h2>

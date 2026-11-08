@@ -1,6 +1,6 @@
 {
   "name": "angular-skill",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "23 focused Agent Skills for building and reviewing modern Angular v21 and v22 apps: components, signals, routing, forms, HTTP, testing, SSR, performance, security and architecture.",
   "author": {
     "name": "denisakita",

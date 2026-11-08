@@ -41,8 +41,10 @@ All from `@angular/platform-browser` unless noted:
 
 - `withEventReplay()` — captures user interactions (clicks and other native
   events) that occur before hydration completes and replays them afterward, so no
-  early interaction is lost.
-- `withIncrementalHydration()` — enables incremental hydration via `@defer (hydrate ...)`
+  early interaction is lost. In v22 it comes with incremental hydration, which is on by
+  default, so you only need it on v21 or after opting out of incremental hydration.
+- `withIncrementalHydration()` — deprecated in v22, where incremental hydration is on by
+  default. In v21, it enables incremental hydration via `@defer (hydrate ...)`
   blocks (see `incremental-hydration.md`). It depends on and **automatically
   enables event replay**, so you can drop a separate `withEventReplay()`.
 - `withI18nSupport()` — enables hydration for apps using Angular i18n.
@@ -50,19 +52,18 @@ All from `@angular/platform-browser` unless noted:
   (`includeHeaders`, `includePostRequests`, etc.).
 - `withNoHttpTransferCache()` — disables the HTTP transfer cache entirely.
 
-Example combining features:
+Example adding a feature:
 
 ```typescript
 import {
   bootstrapApplication,
   provideClientHydration,
-  withIncrementalHydration,
   withI18nSupport,
 } from '@angular/platform-browser';
 
 bootstrapApplication(App, {
   providers: [
-    provideClientHydration(withIncrementalHydration(), withI18nSupport()),
+    provideClientHydration(withI18nSupport()),
   ],
 });
 ```
@@ -142,8 +143,8 @@ remains unstable" error. To debug, add `provideStabilityDebugging()` from
 ## Best practices
 
 - Always pair SSR/SSG with `provideClientHydration()`.
-- Add `withEventReplay()` (or `withIncrementalHydration()`, which includes it) so
-  early clicks aren't dropped during hydration.
+- Keep event replay on so early clicks aren't dropped during hydration. Incremental
+  hydration includes it and is on by default in v22; otherwise add `withEventReplay()`.
 - Replace native DOM manipulation with Angular APIs; isolate unavoidable DOM work
   in `afterNextRender`.
 - Write valid HTML (explicit `<tbody>`, no `<div>` in `<p>`, no nested `<a>`).

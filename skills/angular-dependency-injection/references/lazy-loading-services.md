@@ -2,7 +2,7 @@
 
 Source: https://angular.dev/guide/di/lazy-loading-services
 
-`injectAsync` loads a service on demand, splitting its code into a separate JavaScript chunk that downloads only when needed.
+`injectAsync` (v22+) loads a service on demand, splitting its code into a separate JavaScript chunk that downloads only when needed.
 
 ## Requirement
 

@@ -74,5 +74,6 @@ Read the reference that matches your task:
 5. **Default to incremental hydration for heavy below-the-fold UI.** Wrap large,
    non-critical components in `@defer (hydrate on viewport)` (or `idle`,
    `interaction`, etc.) so their JavaScript is fetched and hydrated only when
-   needed, shrinking the initial bundle. Enable it with
+   needed, shrinking the initial bundle. It is on by default with
+   `provideClientHydration()` in v22. In v21, enable it with
    `provideClientHydration(withIncrementalHydration())`.

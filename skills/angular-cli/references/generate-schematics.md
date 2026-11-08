@@ -65,8 +65,6 @@ A JSON schema (`schema.json`) associated with each schematic tells the CLI what 
 
 ```bash
 ng generate my-collection:my-schematic
-# or
-ng generate my-schematic --collection my-collection
 ```
 
 ## `ng add`

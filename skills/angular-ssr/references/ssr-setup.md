@@ -32,14 +32,14 @@ application configs that are merged.
 ```typescript
 import {ApplicationConfig, provideZonelessChangeDetection} from '@angular/core';
 import {provideRouter} from '@angular/router';
-import {provideClientHydration, withEventReplay} from '@angular/platform-browser';
+import {provideClientHydration} from '@angular/platform-browser';
 import {routes} from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZonelessChangeDetection(),
     provideRouter(routes),
-    provideClientHydration(withEventReplay()),
+    provideClientHydration(), // on v21, add withEventReplay() to replay early clicks
   ],
 };
 ```

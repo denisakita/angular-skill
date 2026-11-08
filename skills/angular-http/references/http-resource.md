@@ -4,7 +4,9 @@
 **signals**, integrating naturally with `computed`, `effect`, `linkedSignal`, and other
 reactive APIs. Source: https://angular.dev/guide/http/http-resource
 
-Requires `provideHttpClient()` (ideally `withFetch()`) to be configured — see `setup.md`.
+Requires `provideHttpClient()` to be configured — see `setup.md`.
+
+> Status: stable in v22. In v21, `httpResource()` is experimental, so its API can change.
 
 ## Eager and reactive
 

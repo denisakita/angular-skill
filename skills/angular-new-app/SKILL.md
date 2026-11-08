@@ -23,7 +23,7 @@ Use the reference files below for detailed, copy-ready guidance on each phase of
 
 ## Core rules
 
-- Require an active LTS Node.js (the install docs specify v20.19.0 or newer) before installing the CLI.
+- Require a supported Node.js before installing the CLI: `^22.22.3`, `^24.15.0` or `>=26.0.0` for Angular 22, and `^20.19.0`, `^22.12.0` or `>=24.0.0` for Angular 21.
 - Install the CLI globally with `npm install -g @angular/cli`, then scaffold with `ng new <project-name>`.
 - Always build standalone — components declare their own `imports`; there are no NgModules in a new app.
 - Bootstrap the app with `bootstrapApplication(App, appConfig)` in `main.ts`; configure providers in `app.config.ts`.

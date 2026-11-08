@@ -1,8 +1,8 @@
 # Angular v21/v22 Starter Kit — setup recipe
 
 Copy-paste steps to start a new project with the skills + conventions + strict tooling wired in.
-Everything here is verified against the official Angular CLI, angular-eslint, and Native
-Federation docs (June 2026).
+Steps 1 to 5b and 7 were run end to end with Angular CLI 22.2 in November 2026. The optional
+micro-frontend step is based on the Native Federation docs.
 
 ---
 
@@ -17,10 +17,12 @@ ng new my-app \
   --style=scss \
   --routing \
   --prefix=app \
-  --ai-config=claude \
+  --ai-config=claude-code \
   --package-manager=npm
 cd my-app
 ```
+
+Using CLI 21? Change it to `--ai-config=claude`.
 
 Verified `ng new` flags (source: https://angular.dev/cli/new):
 
@@ -32,7 +34,7 @@ Verified `ng new` flags (source: https://angular.dev/cli/new):
 | `--style` | `css` \| `scss` \| `sass` \| `less` \| `tailwind` |
 | `--routing` | Adds `app.routes.ts` + `provideRouter` |
 | `--prefix` | Selector prefix (keep in sync with `eslint.config.js`) |
-| `--ai-config` | Generates AI-tool config files (e.g. `claude`, `gemini`, `copilot`) |
+| `--ai-config` | Generates AI-tool config files. CLI 22: `claude-code`, `gemini-cli`, `vscode`, `cursor`, `open-ai-codex`. CLI 21: `claude`, `gemini`, `copilot`, `cursor`, `jetbrains`, `windsurf`, `agents` |
 | `--package-manager` | `npm` \| `pnpm` \| `yarn` \| `bun` |
 
 > `--server-routing` is **not** a real flag — server render modes live in `app.routes.server.ts`.
@@ -65,8 +67,9 @@ Copy-Item "..\angular-skill\skills\angular-*" ".claude\skills\" -Recurse
 
 ## 3. Drop in the conventions + config
 
-From this `starter-kit/` folder, copy into the new project root. You need a clone of this repo
-for this step (`git clone https://github.com/denisakita/angular-skill.git`):
+Run these from your project root. They copy files from `starter-kit/` in a clone of this repo,
+so clone it next to your project first if you haven't
+(`git clone https://github.com/denisakita/angular-skill.git ../angular-skill`):
 
 ```bash
 SK=../angular-skill/starter-kit      # where your clone's starter-kit folder is
@@ -84,6 +87,7 @@ cp "$SK/CODEOWNERS" .                 # then edit @your-org/* to real teams
 ng add angular-eslint          # installs eslint v9 + angular-eslint, generates flat config
 cp "$SK/eslint.config.js" .    # replace with the stricter starter config (edit `prefix`)
 npm i -D prettier
+echo ".claude/" >> .prettierignore   # don't format the copied skills
 ```
 
 Add scripts to `package.json`:
@@ -112,14 +116,19 @@ Add scripts to `package.json`:
 
 `starter-kit/templates/` contains ready, idiomatic v21/v22 code you can adapt:
 
-- `app.config.ts` — providers (zoneless is automatic, router + input binding + view transitions, `provideHttpClient(withFetch())`, hydration)
+- `app.config.ts` — providers (zoneless is automatic, router + input binding + view transitions, `provideHttpClient()`, hydration)
 - `app.routes.ts` — lazy-loaded routes with route-param input binding
+- `app.routes.server.ts` — renders every route on the server, which the `users/:id` route needs
 - `app.ts` — thin standalone root component (router outlet) + bootstrap snippet
+- `app.spec.ts` — the test that matches this `app.ts`
 - `features/user-profile/` — a first component using `input.required()`, `httpResource()`,
   `computed()`, `output()`, native control flow, plus a signal-based `user-store.ts`
   (`data-access`) showing the recommended state pattern
 
-Copy what you need into `src/app/`, matching the no-type-suffix filenames.
+Copy what you need into `src/app/`, matching the no-type-suffix filenames. Copy these pairs
+together: `app.routes.ts` with `app.routes.server.ts`, because the generated server routes try
+to prerender `users/:id` and fail the build, and `app.ts` with `app.spec.ts`, because the
+generated test expects the default page.
 
 ## 6. (Optional) Micro-frontends
 
@@ -136,9 +145,10 @@ cp "$SK/federation.config.js" .   # then adjust name/exposes (remote) or use the
 ## 7. Verify
 
 ```bash
+npm run format     # once, after copying everything, so every file matches Prettier
 npm run lint && npm run format:check
 ng build
-ng test            # Vitest by default in v21/v22
+ng test --watch=false   # Vitest by default in v21/v22
 ng serve
 ```
 

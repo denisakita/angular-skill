@@ -18,7 +18,6 @@ export interface User {
   selector: 'app-user-profile',
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './user-profile.html',
-  styleUrl: './user-profile.scss',
 })
 export class UserProfile {
   /** Bound from the route's `:id` segment via `withComponentInputBinding()`. */

@@ -16,7 +16,7 @@ interception, and first-class testing utilities. Angular v21/v22 also provides
 `httpResource()`, a signal-based wrapper for reactive, read-only data fetching.
 
 This skill covers the modern, recommended approach: `provideHttpClient()` with the
-`withFetch()` and `withInterceptors()` features, functional interceptors, observable-based
+`withInterceptors()` feature, functional interceptors, observable-based
 requests via `HttpClient`, signal-based fetching via `httpResource()`, and HTTP testing.
 
 ## Reference files
@@ -33,10 +33,11 @@ Read the relevant reference before writing code:
 
 1. **Always register HTTP via `provideHttpClient()`** in `app.config.ts` (standalone)
    or module providers. Never rely on the legacy `HttpClientModule`.
-2. **Use the fetch backend** with `provideHttpClient(withFetch())`. It is the modern
-   default-recommended backend with broad environment support. Only switch to
-   `withXhr()` if you need upload progress events (XHR server support is deprecated
-   and removed in Angular 23).
+2. **Use the fetch backend.** Plain `provideHttpClient()` uses it by default in v22, where
+   `withFetch()` is deprecated. In v21, add `withFetch()`. It has broad environment
+   support. If you need upload progress
+   events, use `withXhr()` in v22 (XHR server support is deprecated and intended to be
+   removed in Angular 23). In v21, XHR is already the default, so leave out `withFetch()`.
 3. **Prefer functional interceptors** (`HttpInterceptorFn`) registered with
    `withInterceptors([...])` over class-based interceptors. They have predictable
    ordering and can use `inject()` directly. Reserve `withInterceptorsFromDi()` for

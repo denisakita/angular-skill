@@ -5,7 +5,7 @@ import {
   withViewTransitions,
   withInMemoryScrolling,
 } from '@angular/router';
-import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 
 import { routes } from './app.routes';
@@ -33,17 +33,19 @@ export const appConfig: ApplicationConfig = {
       }),
     ),
 
+    // Uses the fetch backend by default in v22. On v21, add `withFetch()` to opt in.
     provideHttpClient(
-      withFetch(), // use the fetch backend (recommended; required for some SSR setups)
       withInterceptors([
         /* authInterceptor */
       ]), // functional interceptors only
     ),
 
     // SSR / hydration. Keep if you scaffolded with `ng new --ssr`.
-    // `withEventReplay()` replays user events that happened before hydration.
-    // For large pages, swap to `withIncrementalHydration()` (it also enables event replay)
-    // and use `@defer (hydrate ...)` blocks in templates.
+    // `withEventReplay()` replays user events that happened before hydration. Only v21 needs
+    // it; in v22 it comes with incremental hydration. It is harmless there, so this runs on both.
+    // For large pages, use `@defer (hydrate ...)` blocks in templates. Incremental hydration
+    // is on by default in v22. On v21, swap to `withIncrementalHydration()` for it
+    // (it also enables event replay).
     provideClientHydration(withEventReplay()),
   ],
 };

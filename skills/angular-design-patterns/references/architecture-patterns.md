@@ -120,8 +120,8 @@ These are the conventions Angular publishes for code generation; apply them ever
 - Use signals for local state and `computed()` for derived values.
 - Use `input()` and `output()` functions instead of decorators.
 - Use native control flow `@if` / `@for` / `@switch` instead of `*ngIf` / `*ngFor` / `*ngSwitch`.
-- Don't set `OnPush` explicitly where it is the framework default (v22+ trend); don't fight it.
-- Prefer Signal Forms for new forms.
+- `OnPush` is the default in v22. Keep it explicit in code that must also run on v21; in a v22-only app you can leave it out.
+- Prefer Signal Forms for new forms (experimental on v21).
 - Accessibility is mandatory: pass AXE checks and meet WCAG AA.
 
 ## DO / DON'T

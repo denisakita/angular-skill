@@ -118,7 +118,7 @@ try {
 }
 ```
 
-For observable-driven work, `pendingUntilEvent()` from `@angular/core/rxjs-interop` keeps the application unstable until the source emits or completes.
+For observable-driven work, `pendingUntilEvent()` (developer preview) from `@angular/core/rxjs-interop` keeps the application unstable until the source emits or completes.
 
 ## Step 6 — Update tests
 
@@ -140,7 +140,7 @@ Avoid `fixture.detectChanges()` where possible; prefer `await fixture.whenStable
 
 ### Debug-time validation
 
-Enable exhaustive change-detection checks to catch bindings that mutate without notifying Angular:
+Enable exhaustive change-detection checks to catch bindings that mutate without notifying Angular. `provideCheckNoChangesConfig` is in developer preview:
 
 ```typescript
 import { provideCheckNoChangesConfig } from '@angular/core';
@@ -154,8 +154,8 @@ This periodically re-runs change detection and errors if a binding changed witho
 
 - Migrate in two phases: enable `provideZonelessChangeDetection()` and validate behavior first, then strip `zone.js` from the build.
 - Convert component state to signals and adopt `OnPush` as part of the migration.
-- Wrap SSR async work in `PendingTasks` / `pendingUntilEvent()` to avoid serializing incomplete pages.
-- Use `provideCheckNoChangesConfig({ exhaustive: true })` during development to surface missing notifications early.
+- Wrap SSR async work in `PendingTasks` / `pendingUntilEvent()` (developer preview) to avoid serializing incomplete pages.
+- Use `provideCheckNoChangesConfig({ exhaustive: true })` (developer preview) during development to surface missing notifications early.
 - Replace `NgZone.onStable`-style waiting with `afterNextRender()` / `afterEveryRender()`.
 
 ## Common mistakes

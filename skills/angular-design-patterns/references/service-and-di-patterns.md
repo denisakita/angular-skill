@@ -20,7 +20,7 @@ export class AnalyticsLogger {
 }
 ```
 
-> Note (v21): Angular adds `@Service()` as an ergonomic shorthand for
+> Note (v22+): Angular adds `@Service()` as an ergonomic shorthand for
 > `@Injectable({providedIn: 'root'})`. Both are valid; `@Injectable({providedIn: 'root'})`
 > remains the widely documented form and is safe across v21/v22.
 

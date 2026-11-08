@@ -147,7 +147,7 @@ bootstrapApplication(App, {
 });
 ```
 
-Enable Event Replay to capture user interactions that happen before hydration completes and replay them afterward:
+Event Replay captures user interactions that happen before hydration completes and replays them afterward. It is on by default in v22. On v21, enable it:
 
 ```ts
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
@@ -168,7 +168,7 @@ Skip hydration for a problematic component with `ngSkipHydration` (forfeits hydr
 - Lazy load every feature area with `loadComponent`/`loadChildren`; keep the eager bundle limited to the shell and first route.
 - Set an `initial` budget early so regressions in bundle size fail the build before they ship.
 - Import from source files, not barrels, so dynamic imports split cleanly.
-- Enable hydration for any SSR/SSG app, and add `withEventReplay()` so early clicks are not lost.
+- Enable hydration for any SSR/SSG app, and, on v21, add `withEventReplay()` so early clicks are not lost (on by default in v22).
 - Choose `Prerender` (SSG) for static pages and `Server` (SSR) only for genuinely dynamic ones.
 
 ## Common mistakes

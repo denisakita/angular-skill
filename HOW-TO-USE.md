@@ -12,9 +12,10 @@ This folder (`angular-skill`) is a library of **Agent Skills** for building mode
 
 1. **Create / open your Angular project** (modern setup the skills assume):
    ```bash
-   ng new my-app --ssr --style=scss --zoneless --ai-config
+   ng new my-app --ssr --style=scss --zoneless --ai-config=claude-code
    cd my-app
    ```
+   On CLI 21, use `--ai-config=claude`.
 
 2. **Install the plugin** in Claude Code:
    ```

@@ -6,7 +6,7 @@ Angular maintains two parallel injector hierarchies.
 
 ## EnvironmentInjector hierarchy
 
-Configured with `@Service()` or the `providers` array in `ApplicationConfig`. Handles application-wide dependencies. Using `@Service()` is preferable to the `ApplicationConfig` `providers` array because optimization tools can **tree-shake** unused services.
+Configured with `@Service()` (v22+; `@Injectable({providedIn: 'root'})` on v21) or the `providers` array in `ApplicationConfig`. Handles application-wide dependencies. Using `@Service()` is preferable to the `ApplicationConfig` `providers` array because optimization tools can **tree-shake** unused services.
 
 ```typescript
 import {Service} from '@angular/core';

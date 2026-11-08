@@ -14,7 +14,7 @@ Dependency Injection (DI) is a design pattern for organizing and sharing code by
 
 DI gives you: improved maintainability through separation of concerns, scalability via reusable modular code, and better testing by swapping real implementations for test doubles.
 
-This skill targets modern Angular (v21/v22): the `inject()` function, the `@Service()` decorator (the ergonomic successor to `@Injectable({providedIn: 'root'})`), `InjectionToken`, injection context, hierarchical injectors, lazy-loaded services via `injectAsync`, and lightweight injection tokens.
+This skill targets modern Angular (v21/v22): the `inject()` function, the `@Service()` decorator (the ergonomic successor to `@Injectable({providedIn: 'root'})`), `InjectionToken`, injection context, hierarchical injectors, lazy-loaded services via `injectAsync`, and lightweight injection tokens. `@Service()`, its `autoProvided` option and `injectAsync` need v22 or later; on v21, use `@Injectable({providedIn: 'root'})` instead of `@Service()`.
 
 ## Reference files
 
@@ -31,7 +31,7 @@ Read the file that matches your task:
 ## Core rules
 
 1. **Prefer `inject()` over constructor parameter injection.** Assign dependencies in field initializers: `private readonly http = inject(HttpClient);`. It works in components, directives, services, route guards, factory functions, and other injection contexts.
-2. **Prefer `@Service()` (or `@Injectable({providedIn: 'root'})`) for application-wide singletons.** Both make the service a tree-shakable root singleton — unused services are dropped from the bundle. Prefer this over listing the service in an `ApplicationConfig`/`bootstrapApplication` `providers` array.
+2. **Prefer `@Service()` on v22+ (or `@Injectable({providedIn: 'root'})`, which also works on v21) for application-wide singletons.** Both make the service a tree-shakable root singleton — unused services are dropped from the bundle. Prefer this over listing the service in an `ApplicationConfig`/`bootstrapApplication` `providers` array.
 3. **Use `@Injectable` (not `@Service`) when you need constructor injection, a non-root scope, or advanced provider options** (`useClass`, `useValue`, `useExisting`, `useFactory`).
 4. **Use `InjectionToken` for any non-class dependency** — config objects, primitives, functions, or interface-typed values. TypeScript interfaces cannot be DI tokens because they do not exist at runtime.
 5. **Scope deliberately.** `providedIn: 'root'` / `@Service()` for app singletons; component/directive `providers` for per-instance state; route `providers` for a lazy feature area.

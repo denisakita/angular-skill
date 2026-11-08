@@ -109,8 +109,8 @@ All content is grounded in the official documentation at [angular.dev](https://a
 
 ## Starter kit (turn-key setup)
 
-The [`starter-kit/`](starter-kit/) folder makes new projects copy-paste ready (all config
-verified against official docs, June 2026):
+The [`starter-kit/`](starter-kit/) folder makes new projects copy-paste ready (tested with
+Angular CLI 22.2, November 2026):
 
 - [`SETUP.md`](starter-kit/SETUP.md) — one-command `ng new` recipe + steps tying it together
 - [`CLAUDE.md`](starter-kit/CLAUDE.md) — conventions file Claude auto-reads; copy to your project root

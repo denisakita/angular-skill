@@ -25,5 +25,5 @@ Use this skill when you are turning on zoneless mode, removing `zone.js` from an
 - Drive UI updates through **signals** (read in templates), the `AsyncPipe`, `ComponentRef.setInput()`, bound host/template event listeners, or an explicit `ChangeDetectorRef.markForCheck()`.
 - Prefer `ChangeDetectionStrategy.OnPush` on components; it guarantees zoneless compatibility (though it is not strictly mandatory).
 - Never depend on Zone-only APIs: `NgZone.onMicrotaskEmpty`, `onUnstable`, `onStable`, or `isStable`. Use `afterNextRender()` / `afterEveryRender()` or DOM APIs like `MutationObserver` instead.
-- For async work that must complete before SSR serializes (or to keep the app "unstable"), use the `PendingTasks` service or `pendingUntilEvent()`.
+- For async work that must complete before SSR serializes (or to keep the app "unstable"), use the `PendingTasks` service or `pendingUntilEvent()` (developer preview).
 - After truly going zoneless, remove `zone.js` and `zone.js/testing` from `angular.json` polyfills and uninstall the package to shrink the bundle.

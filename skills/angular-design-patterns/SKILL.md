@@ -37,7 +37,7 @@ Load the reference that matches the task; each is self-contained.
 - Use `input()` / `output()` functions, never the `@Input()` / `@Output()` decorators.
 - Inject with the `inject()` function over constructor parameter injection in new code.
 - Use native control flow `@if` / `@for` (with `track`) / `@switch`, never `*ngIf` / `*ngFor` / `*ngSwitch`.
-- Prefer `OnPush` change detection; signals integrate with it automatically (in v22+ this trends toward default — do not fight the default).
+- Prefer `OnPush` change detection; signals integrate with it automatically (it is the default in v22; keep it explicit in code that must also run on v21).
 - Load async data with the `resource()` family (`resource`, `rxResource`, `httpResource`) instead of manual subscribe/store-in-field patterns.
 - Bind host state via the `host` metadata object, not `@HostBinding` / `@HostListener`.
 - Keep state immutable: replace objects/arrays with new references via `.set()` / `.update()`.

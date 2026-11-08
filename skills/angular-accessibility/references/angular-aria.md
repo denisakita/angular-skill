@@ -1,6 +1,6 @@
 # Angular Aria (headless primitives)
 
-> Status: **New / recently introduced** (v22 era). Angular Aria is a separate,
+> Status: **New / recently introduced** (first released with v21). Angular Aria is a separate,
 > installable package — `@angular/aria` — documented at
 > https://angular.dev/guide/aria/overview. The examples below come directly from
 > the official primitive guides; treat anything not shown there as not yet

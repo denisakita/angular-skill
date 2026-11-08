@@ -28,12 +28,11 @@ export function loggingInterceptor(
 Register them with `withInterceptors([...])`. They execute **in the order listed**:
 
 ```typescript
-import {provideHttpClient, withFetch, withInterceptors} from '@angular/common/http';
+import {provideHttpClient, withInterceptors} from '@angular/common/http';
 
 bootstrapApplication(App, {
   providers: [
     provideHttpClient(
-      withFetch(),
       withInterceptors([loggingInterceptor, cachingInterceptor]),
     ),
   ],
@@ -134,11 +133,11 @@ export class LoggingInterceptor implements HttpInterceptor {
 Register with `withInterceptorsFromDi()` and the `HTTP_INTERCEPTORS` multi-provider:
 
 ```typescript
-import {provideHttpClient, withFetch, withInterceptorsFromDi, HTTP_INTERCEPTORS} from '@angular/common/http';
+import {provideHttpClient, withInterceptorsFromDi, HTTP_INTERCEPTORS} from '@angular/common/http';
 
 bootstrapApplication(App, {
   providers: [
-    provideHttpClient(withFetch(), withInterceptorsFromDi()),
+    provideHttpClient(withInterceptorsFromDi()),
     {provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true},
   ],
 });
