@@ -12,6 +12,30 @@ built-in control flow (`@if` / `@for` / `@switch`), `inject()`, the `input()` / 
 `model()` functions, signal queries, `OnPush` / zoneless change detection, and functional
 guards/interceptors. Legacy APIs are noted only as "do not use in new code."
 
+## Install
+
+In Claude Code, run:
+
+```
+/plugin marketplace add denisakita/angular-skill
+/plugin install angular-skill@angular-skill
+```
+
+All 23 skills then work in every project. Claude picks the right one from your request, or
+you can call one by name, such as `/angular-skill:angular-signals`.
+
+To copy the files yourself or use another tool, see [HOW-TO-USE.md](HOW-TO-USE.md).
+
+## How this differs from the official Angular skills
+
+Angular publishes its own skills at [angular/skills](https://github.com/angular/skills). At the
+time of writing (November 2026), that repo has two broad skills, `angular-developer` and
+`angular-new-app`. Start there if you want the official guidance.
+
+This library goes deeper: 23 focused skills, one per topic, plus a [starter kit](starter-kit/)
+with ready-made config and sample code. Because each skill covers one topic, your agent loads
+only what the task needs.
+
 ## How skills work
 
 Each skill is a folder containing:
@@ -30,44 +54,44 @@ needs for the task — keeping token use low.
 
 | Skill                                                                 | Use it for                                                                                                                                           |
 |-----------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [angular-components](angular-components/SKILL.md)                     | Components & selectors, signal inputs/outputs/`model`, content projection, host bindings, lifecycle, signal queries, styling, programmatic rendering |
-| [angular-templates](angular-templates/SKILL.md)                       | Bindings, event listeners, two-way binding, `@if`/`@for`/`@switch`, `@let`, `@defer`, pipes, expression syntax                                       |
-| [angular-directives](angular-directives/SKILL.md)                     | Attribute & structural directives, directive composition (`hostDirectives`), `NgOptimizedImage`                                                      |
-| [angular-signals](angular-signals/SKILL.md)                           | `signal`/`computed`/`effect`, `linkedSignal`, `resource`/`rxResource`/`httpResource`, RxJS interop                                                   |
-| [angular-dependency-injection](angular-dependency-injection/SKILL.md) | Services, `inject()`, providers, `InjectionToken`, injection context, hierarchical injectors                                                         |
-| [angular-routing](angular-routing/SKILL.md)                           | Defining routes, lazy loading, outlets, navigation, route state, functional guards & resolvers, transitions                                          |
-| [angular-forms](angular-forms/SKILL.md)                               | Reactive, template-driven, typed, dynamic forms, validation, and the new **Signal Forms** API                                                        |
-| [angular-http](angular-http/SKILL.md)                                 | `provideHttpClient()`, requests, functional interceptors, `httpResource()`, HTTP testing                                                             |
+| [angular-components](skills/angular-components/SKILL.md)                     | Components & selectors, signal inputs/outputs/`model`, content projection, host bindings, lifecycle, signal queries, styling, programmatic rendering |
+| [angular-templates](skills/angular-templates/SKILL.md)                       | Bindings, event listeners, two-way binding, `@if`/`@for`/`@switch`, `@let`, `@defer`, pipes, expression syntax                                       |
+| [angular-directives](skills/angular-directives/SKILL.md)                     | Attribute & structural directives, directive composition (`hostDirectives`), `NgOptimizedImage`                                                      |
+| [angular-signals](skills/angular-signals/SKILL.md)                           | `signal`/`computed`/`effect`, `linkedSignal`, `resource`/`rxResource`/`httpResource`, RxJS interop                                                   |
+| [angular-dependency-injection](skills/angular-dependency-injection/SKILL.md) | Services, `inject()`, providers, `InjectionToken`, injection context, hierarchical injectors                                                         |
+| [angular-routing](skills/angular-routing/SKILL.md)                           | Defining routes, lazy loading, outlets, navigation, route state, functional guards & resolvers, transitions                                          |
+| [angular-forms](skills/angular-forms/SKILL.md)                               | Reactive, template-driven, typed, dynamic forms, validation, and the new **Signal Forms** API                                                        |
+| [angular-http](skills/angular-http/SKILL.md)                                 | `provideHttpClient()`, requests, functional interceptors, `httpResource()`, HTTP testing                                                             |
 
 ### Platform & tooling
 
 | Skill                                                   | Use it for                                                                                           |
 |---------------------------------------------------------|------------------------------------------------------------------------------------------------------|
-| [angular-ssr](angular-ssr/SKILL.md)                     | Server-side & hybrid rendering, hydration, incremental hydration, render modes (SSR/SSG/CSR)         |
-| [angular-testing](angular-testing/SKILL.md)             | TestBed + Vitest (and Jasmine/Karma), components/services/directives/pipes, harnesses, coverage      |
-| [angular-animations](angular-animations/SKILL.md)       | Native CSS animations, route transitions (View Transitions API), migrating off `@angular/animations` |
-| [angular-i18n](angular-i18n/SKILL.md)                   | Marking/extracting text, translation files, locale-aware formatting, per-locale builds & deploy      |
-| [angular-accessibility](angular-accessibility/SKILL.md) | ARIA bindings, focus & keyboard navigation, the headless `@angular/aria` primitives                  |
-| [angular-zoneless](angular-zoneless/SKILL.md)           | Enabling/migrating to zoneless change detection (`provideZonelessChangeDetection()`)                 |
-| [angular-performance](angular-performance/SKILL.md)     | Change detection, deferrable views, image/bundle optimization, lazy routing, SSR/hydration           |
-| [angular-security](angular-security/SKILL.md)           | XSS/sanitization, CSP & Trusted Types, HttpClient XSRF protection                                    |
-| [angular-cli](angular-cli/SKILL.md)                     | `ng` generate/build/serve/test/add/update, schematics, environments, MCP server                      |
-| [angular-new-app](angular-new-app/SKILL.md)             | Scaffolding a brand-new app: `ng new`, project structure, app config, first component                |
+| [angular-ssr](skills/angular-ssr/SKILL.md)                     | Server-side & hybrid rendering, hydration, incremental hydration, render modes (SSR/SSG/CSR)         |
+| [angular-testing](skills/angular-testing/SKILL.md)             | TestBed + Vitest (and Jasmine/Karma), components/services/directives/pipes, harnesses, coverage      |
+| [angular-animations](skills/angular-animations/SKILL.md)       | Native CSS animations, route transitions (View Transitions API), migrating off `@angular/animations` |
+| [angular-i18n](skills/angular-i18n/SKILL.md)                   | Marking/extracting text, translation files, locale-aware formatting, per-locale builds & deploy      |
+| [angular-accessibility](skills/angular-accessibility/SKILL.md) | ARIA bindings, focus & keyboard navigation, the headless `@angular/aria` primitives                  |
+| [angular-zoneless](skills/angular-zoneless/SKILL.md)           | Enabling/migrating to zoneless change detection (`provideZonelessChangeDetection()`)                 |
+| [angular-performance](skills/angular-performance/SKILL.md)     | Change detection, deferrable views, image/bundle optimization, lazy routing, SSR/hydration           |
+| [angular-security](skills/angular-security/SKILL.md)           | XSS/sanitization, CSP & Trusted Types, HttpClient XSRF protection                                    |
+| [angular-cli](skills/angular-cli/SKILL.md)                     | `ng` generate/build/serve/test/add/update, schematics, environments, MCP server                      |
+| [angular-new-app](skills/angular-new-app/SKILL.md)             | Scaffolding a brand-new app: `ng new`, project structure, app config, first component                |
 
 ### Guidance (best practices, patterns, rules, principles)
 
 | Skill                                                       | Use it for                                                                                              |
 |-------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-| [angular-best-practices](angular-best-practices/SKILL.md)   | Official best practices: performance, change detection, error handling, security, staying current       |
-| [angular-design-patterns](angular-design-patterns/SKILL.md) | Idiomatic signal-based, standalone patterns: components, state, services/DI, data loading, architecture |
-| [angular-code-rules](angular-code-rules/SKILL.md)           | Official Angular Style Guide: naming, file/folder structure, coding rules                               |
-| [angular-principles](angular-principles/SKILL.md)           | Guiding principles: signals-first, standalone-by-default, type-safety, DI, architecture                 |
+| [angular-best-practices](skills/angular-best-practices/SKILL.md)   | Official best practices: performance, change detection, error handling, security, staying current       |
+| [angular-design-patterns](skills/angular-design-patterns/SKILL.md) | Idiomatic signal-based, standalone patterns: components, state, services/DI, data loading, architecture |
+| [angular-code-rules](skills/angular-code-rules/SKILL.md)           | Official Angular Style Guide: naming, file/folder structure, coding rules                               |
+| [angular-principles](skills/angular-principles/SKILL.md)           | Guiding principles: signals-first, standalone-by-default, type-safety, DI, architecture                 |
 
 ### Architecture at scale (monolith & micro-frontends)
 
 | Skill                                                                   | Use it for                                                                                                                                            |
 |-------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [angular-architecture-at-scale](angular-architecture-at-scale/SKILL.md) | Large-app architecture: modular monolith & Nx monorepo vs micro-frontends (Native/Module Federation), enterprise practices, and team rules of working |
+| [angular-architecture-at-scale](skills/angular-architecture-at-scale/SKILL.md) | Large-app architecture: modular monolith & Nx monorepo vs micro-frontends (Native/Module Federation), enterprise practices, and team rules of working |
 
 ## Sourcing & accuracy
 
@@ -100,8 +124,8 @@ verified against official docs, June 2026):
 
 ## Usage
 
-- **Claude Code / agents:** copy or symlink the skill folders you want into your project's
-  `.claude/skills/` directory (or a global skills directory).
+- **Claude Code:** install the plugin as shown in [Install](#install), or copy or symlink the
+  folders you want from `skills/` into your project's `.claude/skills/` directory.
 - **Other agentic tools** (Gemini CLI, etc.): the `SKILL.md` + `references/` layout follows the
   open Agent Skills format and works wherever that format is supported.
 

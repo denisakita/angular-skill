@@ -41,27 +41,35 @@ Verified `ng new` flags (source: https://angular.dev/cli/new):
 
 ## 2. Install the Angular skills
 
+In Claude Code, run:
+
+```
+/plugin marketplace add denisakita/angular-skill
+/plugin install angular-skill@angular-skill
+```
+
+Or copy the files into this project from a clone of this repo that sits next to it:
+
 ```bash
 mkdir -p .claude/skills
-cp -r /c/Users/User/WebstormProjects/angular-skill/angular-* .claude/skills/
+cp -r ../angular-skill/skills/angular-* .claude/skills/
 ```
 
 PowerShell:
 ```powershell
 New-Item -ItemType Directory -Force .claude\skills
-Copy-Item "C:\Users\User\WebstormProjects\angular-skill\angular-*" ".claude\skills\" -Recurse
+Copy-Item "..\angular-skill\skills\angular-*" ".claude\skills\" -Recurse
 ```
-
-(Or install globally once into `~/.claude/skills/` so every project gets them automatically.)
 
 ---
 
 ## 3. Drop in the conventions + config
 
-From this `starter-kit/` folder, copy into the new project root:
+From this `starter-kit/` folder, copy into the new project root. You need a clone of this repo
+for this step (`git clone https://github.com/denisakita/angular-skill.git`):
 
 ```bash
-SK=/c/Users/User/WebstormProjects/angular-skill/starter-kit
+SK=../angular-skill/starter-kit      # where your clone's starter-kit folder is
 cp "$SK/CLAUDE.md" .                 # standing instructions Claude auto-reads
 cp "$SK/.prettierrc.json" .
 cp "$SK/CODEOWNERS" .                 # then edit @your-org/* to real teams

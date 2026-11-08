@@ -1,0 +1,17 @@
+{
+  "name": "angular-skill",
+  "owner": {
+    "name": "denisakita"
+  },
+  "metadata": {
+    "description": "denisakita's Angular skills: 23 focused Agent Skills for modern Angular v21 and v22 apps."
+  },
+  "plugins": [
+    {
+      "name": "angular-skill",
+      "source": "./",
+      "description": "23 focused Agent Skills for building and reviewing modern Angular v21 and v22 apps.",
+      "category": "development"
+    }
+  ]
+}

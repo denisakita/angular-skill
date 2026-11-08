@@ -11,6 +11,7 @@ Thumbs.db
 # Local env
 .env
 .env.local
+.claude/settings.local.json
 
 # Build output (if any consumer builds here)
 dist/

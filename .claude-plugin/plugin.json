@@ -1,0 +1,13 @@
+{
+  "name": "angular-skill",
+  "version": "1.0.0",
+  "description": "23 focused Agent Skills for building and reviewing modern Angular v21 and v22 apps: components, signals, routing, forms, HTTP, testing, SSR, performance, security and architecture.",
+  "author": {
+    "name": "denisakita",
+    "url": "https://github.com/denisakita"
+  },
+  "homepage": "https://github.com/denisakita/angular-skill",
+  "repository": "https://github.com/denisakita/angular-skill",
+  "license": "MIT",
+  "keywords": ["angular", "typescript", "signals", "skills", "agent-skills", "claude-code"]
+}

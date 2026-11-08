@@ -4,7 +4,7 @@
 > read `CLAUDE.md` automatically and apply it as standing instructions.
 
 This is a modern **Angular v21/v22** application. Build everything with current idioms only.
-When a task matches one of the installed Angular skills (in `.claude/skills/`), use it.
+When a task matches one of the installed Angular skills (from the plugin or `.claude/skills/`), use it.
 
 ## Non-negotiable rules
 
@@ -49,5 +49,5 @@ When a task matches one of the installed Angular skills (in `.claude/skills/`), 
 
 - Lint + format must pass (`ng lint`, Prettier) before a change is "done".
 - Conventional Commits. Keep PRs small and focused.
-- When unsure about an API, consult the matching `.claude/skills/angular-*` reference rather
+- When unsure about an API, consult the matching `angular-*` skill's references rather
   than guessing — these are grounded in the official angular.dev docs for v21/v22.

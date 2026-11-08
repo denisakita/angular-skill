@@ -3,8 +3,8 @@
 This folder (`angular-skill`) is a library of **Agent Skills** for building modern
 **Angular v21/v22** apps. This guide explains how to reuse it in any project, every time.
 
-> What's here: 22 skills, each a folder named `angular-*` containing a `SKILL.md` plus
-> `references/*.md`. See [`README.md`](README.md) for the full index.
+> What's here: 23 skills in `skills/`, each a folder named `angular-*` containing a `SKILL.md`
+> plus `references/*.md`. See [`README.md`](README.md) for the full index.
 
 ---
 
@@ -16,40 +16,41 @@ This folder (`angular-skill`) is a library of **Agent Skills** for building mode
    cd my-app
    ```
 
-2. **Copy the skills into the project** so your agent can find them:
-   ```bash
-   # from inside your Angular project root
-   mkdir -p .claude/skills
-   cp -r C:/Users/User/WebstormProjects/angular-skill/angular-* .claude/skills/
+2. **Install the plugin** in Claude Code:
    ```
-   On Windows PowerShell:
-   ```powershell
-   New-Item -ItemType Directory -Force .claude\skills
-   Copy-Item "C:\Users\User\WebstormProjects\angular-skill\angular-*" ".claude\skills\" -Recurse
+   /plugin marketplace add denisakita/angular-skill
+   /plugin install angular-skill@angular-skill
    ```
 
 3. **Code as usual.** The agent reads each `SKILL.md` description and auto-loads the
    relevant skill (ask "add a login form" → `angular-forms`; "make this route lazy" →
-   `angular-routing`). You can also force one explicitly, e.g. `/angular-signals`.
+   `angular-routing`). You can also call one by name, e.g. `/angular-skill:angular-signals`.
 
-That's it. Steps 2–3 are all you need each time.
+That's it. You install the plugin once and it works in every project.
 
 ---
 
 ## Installation options
 
-Pick whichever fits how you work:
+The plugin is the easiest way. To manage the files yourself, first clone this repo:
+
+```bash
+git clone https://github.com/denisakita/angular-skill.git
+```
+
+Then pick whichever fits how you work. The commands assume the clone sits next to your project:
 
 | Option | Command | When to use |
 | --- | --- | --- |
-| **Per-project** (recommended) | `cp -r .../angular-skill/angular-* .claude/skills/` | Skills travel with the repo; safe to commit |
-| **Global (all projects)** | `cp -r .../angular-skill/angular-* ~/.claude/skills/` | You want them everywhere without copying |
+| **Plugin** (recommended) | see Quick start | Claude Code; install once, works everywhere |
+| **Per-project** | `mkdir -p .claude/skills && cp -r ../angular-skill/skills/angular-* .claude/skills/` | Skills travel with the repo; safe to commit |
+| **Global (all projects)** | `mkdir -p ~/.claude/skills && cp -r ../angular-skill/skills/angular-* ~/.claude/skills/` | You want them everywhere without the plugin |
 | **Symlink (one source of truth)** | see below | Edit once, every project gets the update |
 
 Symlink example (Windows PowerShell, run as admin or with Developer Mode on):
 ```powershell
 New-Item -ItemType Directory -Force .claude\skills
-Get-ChildItem "C:\Users\User\WebstormProjects\angular-skill" -Directory -Filter "angular-*" |
+Get-ChildItem "..\angular-skill\skills" -Directory -Filter "angular-*" |
   ForEach-Object {
     New-Item -ItemType SymbolicLink -Path ".claude\skills\$($_.Name)" -Target $_.FullName
   }
@@ -87,8 +88,8 @@ Get-ChildItem "C:\Users\User\WebstormProjects\angular-skill" -Directory -Filter 
 ## Use with other tools
 
 The `SKILL.md` + `references/` layout follows the open Agent Skills format, so it also works
-with Gemini CLI and other agentic tools that support skills — point them at this folder or
-copy the `angular-*` folders into their skills directory.
+with Gemini CLI and other agentic tools that support skills — point them at the `skills/`
+folder or copy the `angular-*` folders from it into their skills directory.
 
 ---
 
